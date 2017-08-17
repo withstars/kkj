@@ -1,0 +1,66 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <link href="/static/index/css/user.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .login_input1 {
+            line-height:normal;
+        }   
+    </style>
+    <title>用户登录</title>
+</head>
+<body>
+    <form style="margin: 0px;" name="userlogin" accept-charset="gb2312" action="{:url('Login/index')}" method="post">
+        <div class="box">
+        <div id="header_er">
+            <div class="ehome"><a href="/"><img src="/static/index/picture/home_icon.png" width="30" height="26"></a></div>
+            <div class="eme"><a href="#">用户登录</a></div>
+            <div class="eloginbar">
+                <img src="/static/index/picture/icon.png" width="24" height="26"></div>
+        </div>
+         <div class="login_t">用户登录<span style="padding:1px 5px; float:right; color:#F00; font-size:12px;"></span></div>
+        <div class="login_x">
+            <div class="login_input_x">
+               <input name="username" type="text" class=" login_input1" id="txtUserName" placeholder="用户名：" />
+            </div>
+            <div class="login_input_x">
+                <input name="password" type="password" class=" login_input1" id="txtPwd" placeholder="密 码：" />
+            </div>
+            <!--
+            <div class="login_input_x">
+               <input name="yzm" type="text" class=" login_input1" style="width:195px;" onfocus="javascript:$('#img_yzm').attr('src',''+Math.random());" id="yzm" placeholder="验证码" />
+                <span style="display: inline-block; width: 70px">               
+                    <img  style="vertical-align: middle" id="img_yzm" onclick="javascript:this.src='picture/yanzhengma.aspx'+Math.random();" src="" />
+                </span>
+            </div>
+            -->
+        </div>
+        <div class="login_button">
+            <input type="button" onclick="javascript:window.location.href='{:url(\'register\')}'" value="注册点这里" class="button_style2" />
+            <input type="submit" name="btnlogin" id="btnlogin" value="确 定" class="button_style2" />
+        </div>
+        <div class="login_qt">您也可以用以下方式登录：</div>
+        <div class="login_qt1">
+            <div onclick=""  class="plun_login_QQ1">用QQ帐户登录</div>
+            <div onclick="" class="plun_login_sina1">用微博帐户登录</div>
+        </div>
+        <input type="hidden" id="hiddenReturnUrl" value="" />
+        <script type="text/javascript" src="/static/index/js/common.min.js" ></script>
+        
+
+
+
+<div class="footer">
+    <a href="http://m.mydrivers.com/">首页</a> |<a href="http://pad.mydrivers.com">Pad版</a> | <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.kkeji.news.client&ckey=CK1363092404271">客户端</a> | <a href="#">个人中心</a><p></p>
+    <span>京公网安备：<a href="http://www.bj.cyberpolice.cn/">11010502022785号</a>　京文网文【2017】2380-251号    <a href="http://www.miibeian.gov.cn/">京ICP备11024344号-7</a> 京ICP证110954号  猎豹移动·版权所有</span>
+</div>
+
+
+</div>
+    </div>     
+    </form>
+</body>
+</html>
