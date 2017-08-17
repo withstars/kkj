@@ -1,0 +1,187 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+    <title>{$news.title}</title>
+    <link href="/static/index/css/main.min_1.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">document.write('<script src="/static/index/js/d8cfa65aa2384597a23a6f472ac709f1.js' + ('__proto__' in {} ? 'zepto.min.js' : 'jquery-1.7.2.min.js') + '"><\/script>');</script>
+    <script type="text/javascript" src="/static/index/js/trimpath-template-1.0.38.min.js"></script>
+    <script type="text/javascript" src="/static/index/js/common.min.js"></script>
+    <script type="text/javascript">	var _hmt = _hmt || [];</script>
+    <style>
+        #mcover{ position: fixed;top:0;left:0;width:100%;	height:100%;background:rgba(0, 0, 0, 0.7);	display:none;z-index:20000;}
+        #mcover img {position: fixed;right: 18px;top:5px;width: 260px;height: 180px;z-index:20001;}
+        .eloginbar{position:relative;}
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <!--title-->
+        <div id="header_er">
+            <div class="ehome"><a href="/"><img src="/static/index/picture/home_icon.png" width="24" height="24"></a></div>
+            <div class="eme"><a href="/"> {$catename[0]}</a></div>
+            <div class="eloginbar"><img src="/static/index/picture/icon.png" width="20" height="22" /></div>
+        </div>
+        <div class="news_content">
+            <div class="news_t">{$news.title}</div>
+            <div class="news_t1">
+                <ul>
+                    <li>{$news.admin}</li>
+                    <li>|</li>
+                    <li>{$news.time}</li>
+                    <li class="news_t1_plun" id="div_reviewcount" onClick="seeallreviews(544419)" style="float: right;"><a href="{:url('Comment/index',array('id'=>$news.id))}">{$comment_count}</a></li>
+                    <li style="float: right; padding-right: 10px;"><a id="contentFontp18"  href="#">A</a>|<a id="contentFontp22" href="javascript:setFontSize(22);" style="font-size: 18px;">A</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="cnewsinfo" style="padding:10px 0 0 0;">
+
+</div>
+        <div id="content" class="cnewsinfo" style="padding-top:0px;">
+            {$news.content}
+          <p class="fav"><a id="a_shoucang" href="javascript:;" onClick="shoucang()">收藏</a></p>
+        </div>
+         <div class="cnewsinfo" style="padding:10px 10px 0px 10px;">
+
+<script type="text/javascript" src="/static/index/js/cm.js"></script>
+</div>
+       <script type="text/javascript">if (getCookie("fontsize") != null) setFontSize(getCookie("fontsize")); else setFontSize(18);</script>
+
+        <!--热门评论-->
+        <div class="share">
+            <ul>
+                <li>热门评论</li>
+                <li style="float: right;"><a href="#post0">发表评论</a></li>
+            </ul>
+        </div>
+
+        <div id="MyComments" class="pinlun">
+            {volist name="comments" id="vo"}
+            <div class="plunxx">
+                <div class="plunxx_top">
+                    <div class="plunxx_top1"><span name="regUserColor_UserName"> {$vo.user_id}</span>
+                        <span>定位</span>
+                    </div>
+                    <div class="plunxx_top3"><div title="这条评论有问题，小编快来和谐它" onclick="" style="padding-right:0px;" class="plunxx_bottom_fdui"><span id="span_jubao_31383573" style="color:red;">举报</span></div> </div>
+                </div>
+
+                <div class="plunxx_center">
+                    {$vo.content}
+                    <div style="clear: both"></div>
+                </div>
+                <div class="plunxx_bottom">
+                    <div class="plunxx_bottom_time">{$vo.time}</div>
+                    <div onclick="ShowReply('{$vo.user_id}')" class="plunxx_bottom_fyan">回复</div>
+                    <div id="o_31383573" onclick="sndReq(544465,'{$vo.user_id}','oppose',0)" class="plunxx_bottom_fdui">反对[{$vo.oppose}]</div>
+                    <div id="s_31383573" onclick="sndReq(544465,'{$vo.user_id}','support',1)" class="plunxx_bottom_ztong">支持[{$vo.support}]</div>
+                </div>
+                <div id="div_reply_31383573">
+                </div>
+            </div>
+            {/volist}
+
+        </div>
+
+        <a href="{:url('Comment/index',array('id'=>$news.id))}">
+            <div class="pinlun_more bt1 bb1">查看全部<span id="span_reviewcount">{$comment_count}</span>条评论</div>
+        </a>
+
+
+        <div class="plun_s">
+           <div id="div_reply_0"></div>
+        </div>
+
+        <input id="hiddenTid" type="hidden" value="544419" />
+        <input id="hiddenType" type="hidden" value="2" />
+        <input id="hiddenPage" type="hidden" value="newsview" />
+        <div class="fh_top" id="gotop"><img src="/static/index/picture/fh_top.png" width="36" height="36"></div>
+        <script type="text/javascript">
+            var commentorderby = "new";
+            GetNewsViewComments(1); ShowReply(0); GetRelatedNews(544419,'大疆');
+
+        var shouc = 0;
+            if (shouc==1) {
+                $("#a_shoucang").removeAttr("onclick").html("已收藏");
+            }
+
+            $.ajax({
+                type: 'GET',
+                url: '',
+                // data to be added to query string:
+                data: {},
+                // type of data we are expecting in return:
+                dataType: 'text',
+                timeout: 10000,
+                success: function (data) {
+
+                    var mydata = eval("(" + data + ")");
+
+                    if (mydata.length > 0) {
+                        var str="";
+                        for (var i = 0; i < mydata.length; i++) {
+                            var appname = mydata[i].APPName;
+                            var appurl = mydata[i].APPUrl;
+                            var imgurl = mydata[i].ImgUrl;
+
+                            str += "<li><a href=\"" + appurl + "\"><img src=picture/fc5b9ebb59f7479bab9ea7eb4f425e04.gif"" + imgurl + "\" width=\"101\" height=\"100\"><p>" + appname + "</p></a></li>";
+                        }
+
+                        $("#apptuijian").append(str);
+                    }
+                },
+                error: function (xhr, type) {
+                    //alert('Ajax error!')
+                }
+            })
+            $("#gotop").click(function () {
+                window.scrollTo(0, 1);
+                $("#gotop").hide();
+            });
+            $(window).scroll(function () {
+                if ($(".share").offset().top < window.scrollY + window.innerHeight) {
+                    $("#gotop").show();
+                }
+                if ($(this).scrollTop() > 0) {
+                    //$("#gotop").show();
+                }
+                else { $("#gotop").hide(); }
+            });
+
+            var mc = getCookie("mydrivers_userid");
+            if (mc != null && mc != "") {
+                //加载评论提醒
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    // data to be added to query string:
+                    data: { act: "getcommentsreplynums" },
+                    // type of data we are expecting in return:
+                    dataType: 'text',
+                    timeout: 10000,
+                    success: function (data) {
+                        if (parseInt(data) > 0) {
+                            $(".eloginbar").append("<div class=\"hcircle\"></div>");
+                        }
+                    },
+                    error: function (xhr, type) {
+                        //alert('Ajax error!')
+                    }
+                });
+            }
+
+    </script>
+    <script type="text/JavaScript" src="/static/index/js/updatemobilecount.js"></script>
+
+
+
+
+<div class="footer">
+    <a href="">首页</a> |<a href="">Pad版</a> | <a href="">客户端</a> | <a href="#">个人中心</a><p></p>
+    <span>京公网安备：<a href="">11010502022785号</a>　京文网文【2017】2380-251号    <a href="">京ICP备11024344号-7</a> 京ICP证110954号  猎豹移动·版权所有</span>
+</div>
+
+</body>
+</html>

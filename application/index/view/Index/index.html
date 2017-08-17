@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+    <meta name="keywords" content="手机驱动之家,驱动之家首页,新闻资讯,驱动之家新闻,驱动之家无线,手机驱动之家触屏版" />
+    <meta name="description" content="手机驱动之家是驱动之家的手机门户网站，为亿万用户打造一个手机联通世界的超级平台，提供24小时全面及时的中文IT资讯。手机驱动之家触屏版 - m.mydrivres.com" />
+    <link href="/static/index/css/main.min.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon-precomposed" href="/static/index/images/icons.png" />
+    <script type="text/javascript" src="/static/index/js/zepto.min.js"></script>
+    <script type="text/javascript" src="/static/index/js/swipe.min.js"></script>
+    <title>快科技(原驱动之家)手机版</title>
+</head>
+<body>
+
+<div class="box">
+    <div class="menu-mask"></div>
+    <div id="header" style="position:relative;left: 0;top: 0px;width:100%;z-index:200;">
+        <div class="infomore">
+            <a href="javascript:;">
+                <img src="/static/index/picture/infomore.png" width="14" height="12" alt="infomore" longdesc="/"></a>
+        </div>
+        <div class="logo">
+            <a href="/">
+                <img src="/static/index/picture/logo.png" width="70" height="17" alt="logo"></a>
+        </div>
+        <div class="search">
+            <img id="img_showsearch" src="/static/index/picture/search.png" onclick="showsearch(1)" width="17" height="17" />
+            <img id="img_hidesearch" src="/static/index/picture/arrow_bottom.png" onclick="showsearch(2)" width="17" height="11" style="display:none;" />
+        </div>
+    </div>
+    <div class="flbox" style="display: none;">
+        <h3 class="fltitle">
+            <img src="/static/index/picture/kkj_logo.png" width="80" height="28" alt="logo"></h3>
+        <ul>
+            <li><a href="/"><i class="flhome"></i>首页</a></li>
+            <li><a href=""><i class="flinfo"></i>新闻</a></li>
+            <li><a href=""><i class="flpce"></i>评测</a></li>
+            <li><a href=""><i class="flpic"></i>图赏</a></li>
+            <li><a href=""><i class="flsplit"></i>拆解</a></li>
+            <li><a href=""><i class="flexperience"></i>经验</a></li>
+        </ul>
+        <h3 class="fllogin"><i><div style="display: none;" class="flcircle"></div></i><span id="userlogin"></span></h3>
+
+        <ul class="register" style="display: none;border-top: 1px solid #64686e; margin-top: 10px; padding-top: 10px;">
+            <li><a href="javascript:;" onclick="gourl('login')"><i class="fldl"></i>登录</a></li>
+            <li><a  href="http://m.mydrivers.com/reg.aspx?ReturnUrl=http://m.mydrivers.com"><i class="flzc"></i>注册</a></li>
+        </ul>
+    </div>
+
+    <!--搜索下拉框开始-->
+    <div id="div_searchpop" class="search_float" style="display: none;">
+        <div class="search_box">
+            <div class="search-bar clearfix">
+                <input id="q" type="text" class="search-input" value="请输入要搜索的关键字" onfocus=" if (this.value == '请输入要搜索的关键字') {this.value = '';this.style.color = '#000';} " onblur=" if (this.value == '') {this.value = '请输入要搜索的关键字';this.style.color = '#999';} " style="color: rgb(153, 153, 153);">
+                <input class="search-btn" type="button" value="" onclick="search()">
+            </div>
+        </div>
+        <!--热门栏目-->
+        <div class="hot_classify">
+            <h3>热门栏目</h3>
+            <ul>
+                <li><a href="/" class="hot_cur">头条</a></li>
+                <li><a href="">业内动向</a></li>
+                <li><a href="">谷歌安卓</a></li>
+                <li><a href="">网友热议</a></li>
+                <li><a href=" ">普通汽车</a></li>
+                <li><a href="">智能手机</a></li>
+                <li><a href="">苹果手机</a></li>
+                <li><a href="">生物世界</a></li>
+                <li><a href="">奇趣探险</a></li>
+                <li><a href="">生科医学</a></li>
+                <li><a href="">IT八卦</a></li>
+                <li><a href="">企业动态</a></li>
+                <li><a href="">天文航天</a></li>
+                <li><a href="">视点人物</a></li>
+                <li><a href="">PC游戏</a></li>
+                <li><a href="">更多>></a></li>
+            </ul>
+        </div>
+        <!--客户端下载-->
+        <div class="app_down">
+            <h3 class="title">客户端下载</h3>
+            <div class="Android_down">
+                <a href=""><span>
+                <img src="/static/index/picture/kkjlogo_donn.png" width="56" height="56" alt="快科技安卓版下载"></span>
+                    <h3>安卓客户端</h3>
+                    浏览速度更快，发表评论搜索新闻更方便，推荐下载</a>
+            </div>
+            <div class="ios_down">
+                <a href="">
+                <span>
+                    <img src="/static/index/picture/mydriverslogo_donn.png" width="56" height="56" alt="快科技安卓版下载"></span>
+                    <h3>iOS客户端</h3>
+                    浏览速度更快，发表评论搜索新闻更方便，推荐下载</a>
+            </div>
+        </div>
+    </div>
+    <!--搜索结束-->
+
+    <script type="text/javascript">
+        (function () {
+            $(".infomore").click(function (e) {
+                var username = getCookie("mydrivers_userid");
+                var userid = getCookie("mydrivers_usernumid");
+                if (username != null) {
+                    $(".fllogin").show();
+                    $(".register").hide();
+                    $("#userlogin").html("<a href='http://m.mydrivers.com/user/myinfo.aspx'><font color='#fff'>" + decodeURI(username) + "</font></a>，" + sayhi());
+                }
+                else {
+                    $(".fllogin").hide();
+                    $(".register").show();
+                }
+
+                $(".flbox").show();
+
+                $("#img_showsearch").show();
+                $("#img_hidesearch").hide();
+                $("#div_searchpop").hide();
+                $(".menu-mask").hide();
+
+                e.stopPropagation();
+            });
+
+            $(".flbox").click(function (e) {
+                e.stopPropagation();
+            });
+            $(document).click(function () {
+                $(".flbox").hide();
+
+            });
+
+        })();
+        function gourl(t) {
+            var url = "";
+            if (t == "login") {
+                url = "/login.aspx?ReturnUrl=" + window.location.href;
+            }
+            else if (t == "reg") {
+                url = "/reg.aspx?ReturnUrl=" + window.location.href;
+            }
+
+            parent.location = url;
+        }
+        function showsearch(t) {
+            if (t==1) {
+                $("#img_showsearch").hide();
+                $("#img_hidesearch").show();
+                $("#div_searchpop").show();
+                var maskHeight = $(document).height();
+                if ($(document).height() <= $(window).height()) {
+                    maskHeight = $(window).height();
+                }
+                $(".menu-mask").height(maskHeight).show();
+            }
+            else {
+                $("#img_showsearch").show();
+                $("#img_hidesearch").hide();
+                $("#div_searchpop").hide();
+                $(".menu-mask").hide();
+            }
+        }
+        $("#q").keydown(function (event) {
+            event = document.all ? window.event : event;
+            if ((event.keyCode || event.which) == 13) {
+                search();
+            }
+        });
+        function search() {
+            var q = $("#q").val();
+            if (q == "请输入要搜索的关键字") {
+                alert("请输入要查询的关键词"); return;
+            }
+
+            window.location.href = "search.aspx?q=" + escape(q);
+        }
+        function getCookie(varname) {
+            var tmp_ary = new Array();
+            if (varname) {
+                var a = document.cookie.indexOf(varname + "=");
+                if (a != -1) {
+                    var b = document.cookie.substring((a + varname.length + 1), document.cookie.length);
+                    var c = b.split(";");
+                    var d = c[0];
+                    return d;
+                }
+            }
+        }
+        function sayhi() {
+            var now = new Date();
+            var times = now.getHours();
+            var whe = parseInt(times);
+            if (times >= 0 && times < 6) { return "凌晨好" }
+            if (times >= 6 && times < 9) { return "早上好" }
+            if (times >= 9 && times < 11) { return "上午好" }
+            if (times >= 11 && times < 13) { return "中午好" }
+            if (times >= 13 && times < 17) { return "下午好" }
+            if (times >= 17 && times < 19) { return "傍晚好" }
+            if (times >= 19 && times < 24) { return "晚上好" }
+        }
+    </script>
+    <!--菜单-->
+    <div class="subnav">
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>1))}">手机</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>2))}">硬件</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>3))}">科学</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>4))}">汽车</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>5))}">业界</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>6))}">安卓</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>7))}">苹果</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>8))}">CPU</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>9))}">显卡</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>10))}">直播</a></li>
+            <li><a href="{:url('Index/cate',array('id'=>11))}">更多</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div>
+
+    <!--轮播大图-->
+    <div class="shidian">
+        <div id='mySwipe' style='margin: 0 auto' class='swipe'>
+            <div class='swipe-wrap'>
+                {if condition="$lunbo neq ''"}
+                <?php $count=1; ?>
+                {volist name="lunbo" id="vo"}
+                <div>  <a href="{:url('News/index',array('id'=>$vo.id))}"><img src="/static/index/picture/title_221712512.jpg" width="100%" /></a>  <div class="mySwipeceng">    <div class="left">{$vo.title}</div>    <div class="right" style="height: 26px;padding-right:5px;"><span style="color:#F6762D">{$count}</span> / {$lunbocount}    </div>  </div></div>
+                <?php $count++;  ?>
+                {/volist}
+                {/if}
+            </div>
+        </div>
+    </div>
+    <!--新闻列表-->
+    <div class="newslist">
+        <ul id="mynewslist">
+{volist name="newses" id="vo"}
+       {if condition="$vo.stick eq 1"}
+        <li><div class="newsimg">
+            <a href="{:url('News/index',array('id'=>$vo.wzid))}">
+                <img src="/static/index/picture/62133da7c40b41f986ff96163d564e63.jpg" width="90" height="67">
+            </a></div>
+            <span class="newst">
+                <a href="{:url('News/index',array('id'=>$vo.wzid))}">{$vo.title}</a>
+            </span><span class="newsin">{$vo.desci}</span>
+            <span class="zhiding bor_sy_2">置顶</span>
+        </li>
+            {else/}
+        <li data-id="{$vo.wzid}"><!--缩略图为3个或无时的列表样式-->
+            <span class="newstnopic">
+                <a href="{:url('News/index',array('id'=>$vo.wzid))}">{$vo.title}</a>
+            </span>
+            <span class="newsimg1"><a href="{:url('News/index',array('id'=>$vo.wzid))}"><img src=""><img src="" ><img src="" ></a></span>
+            <span class="newsTips"> <!--发布人,时间,评论数-->
+                <ul>
+                    <li class="tname">{$vo.admin} ｜</li>
+                    <li class="ttime">
+                        {$vo.fbsj}
+                    </li>
+                    <li style="float:right;">
+                        <div class="tpinglun"><a href="{:url('Comment/index',array('id'=>$vo.wzid))}">{$vo.pls}</a></div>
+                    </li>
+                </ul>
+            </span>
+        </li>
+            {/if}
+{/volist}
+<!--
+        <li data-id=""> 缩略图为1个时的样式
+            <div class="newsimg">
+                <a href=""><img src="" width="90" height="67"></a>
+            </div>
+            <span class="newst"><a href=""></a></span>
+            <span class="newsTips">
+                <ul>
+                    <li class="tname">{ ｜</li>
+                    <li class="ttime">{</li>
+                    <li style="float:right;"><div class="tpinglun"><a href="">2</a></div></li>
+                </ul>
+            </span>
+        </li>
+-->
+    </ul>
+    </div>
+
+
+    <div class="jzmore" style="border: 0;">更多新闻加载中</div>
+
+    <div class="fh_top" id="gotop"><img src="/static/index/picture/fh_top.png" width="36" height="36"></div>
+
+    <script type="text/javascript">
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.search);
+            if (results == null)
+                return "";
+            else
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        (function () {
+
+
+            var stoploading = false;
+
+            $(".jzmore").click(function () {
+
+                if (stoploading == false) {
+                    stoploading = true;
+                    $(".jzmore").html("更多新闻加载中");
+                    $.ajax({
+                        type: 'GET',
+                        url: '/index/Index/getmore/id/'+ $("[data-id]").last().attr("data-id")+'.html',
+                        data: {},
+                        dataType: 'text',
+                        Accept:'text/plain',
+                        timeout: 10000,
+                        success: function (data) {
+                            $("#mynewslist").append(data);
+                            $(".jzmore").html("点击加载更多新闻");
+                            stoploading = false;
+                        },
+                        error: function (xhr, type) {
+                            //alert('Ajax error!')
+                        }
+                    });
+                }
+            });
+
+            $(window).scroll(function () {
+
+                    if ($(".jzmore").offset().top < window.scrollY + window.innerHeight) {
+                        if (stoploading == false) {
+                            stoploading = true;
+                            $(".jzmore").html("更多新闻加载中");
+                            $.ajax({
+                                type: 'GET',
+                                url: '/index/Index/getmore/id/'+ $("[data-id]").last().attr("data-id")+'.html',
+                                data: {},
+                                dataType: 'text',
+                                Accept:'text/plain',
+                                timeout: 10000,
+                                success: function (data) {
+                                    $("#mynewslist").append(data);
+                                    $(".jzmore").html("更多新闻加载中");
+                                    stoploading = false;
+                                },
+                                error: function (xhr, type) {
+                                    //alert('Ajax error!')
+                                }
+                            });
+                        }
+                    }
+
+            });
+
+            $("#showmore").click(function () {
+                $(".classhide").show();
+                $("#showless").show();
+                $(this).hide();
+            });
+
+            $("#showless").click(function () {
+                $(".classhide").hide();
+                $("#showmore").show();
+                $(this).hide();
+            });
+
+            var elem = document.getElementById('mySwipe');
+            window.mySwipe = Swipe(elem, {
+                startSlide: 0,
+                auto: 3000,
+                continuous: true,
+                disableScroll: true,
+                stopPropagation: true,
+                callback: function (index, element) { },
+                transitionEnd: function (index, element) { }
+            });
+
+            $("#gotop").click(function () {
+                window.scrollTo(0, 1);
+                $("#gotop").hide();
+            });
+
+            $(window).scroll(function () {
+                if ($(".jzmore").offset().top < window.scrollY + window.innerHeight) {
+                    $("#gotop").show();
+                }
+                if ($(this).scrollTop() > 0) {
+                    //$("#gotop").show();
+                }
+                else { $("#gotop").hide(); }
+            });
+
+            $(".loginbar").click(function () {
+                var username = getCookie("mydrivers_userid");
+                var userid = getCookie("mydrivers_usernumid");
+                if (username == null) {
+                    window.location.href = "login.aspx?ReturnUrl=" + window.location.href;
+                }
+                else {
+                    window.location.href = "/user/myinfo.aspx";
+                }
+            });
+            function getCookie(varname) {
+                var tmp_ary = new Array();
+                if (varname) {
+                    var a = document.cookie.indexOf(varname + "=");
+                    if (a != -1) {
+                        var b = document.cookie.substring((a + varname.length + 1), document.cookie.length);
+                        var c = b.split(";");
+                        var d = c[0];
+                        return d;
+                    }
+                }
+            }
+
+            var mc = getCookie("mydrivers_userid");
+            if (mc != null && mc != "") {
+                //加载评论提醒
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    // data to be added to query string:
+                    data: { act: "getcommentsreplynums" },
+                    // type of data we are expecting in return:
+                    dataType: 'text',
+                    timeout: 10000,
+                    success: function (data) {
+                        if (parseInt(data) > 0) {
+                            $(".loginbar").append("<div class=\"hcircle\"></div>");
+                        }
+                    },
+                    error: function (xhr, type) {
+                        //alert('Ajax error!')
+                    }
+                });
+            }
+
+            $("#ad_jrkb").click(function () {
+                try {
+                    ga('send', 'event', 'jrkb', 'click', 'jrkbapk_ad_index', 1);
+                } catch (e) { }
+
+                try {
+                    _hmt.push(['_trackEvent', 'jrkb', 'click', 'jrkbapk_ad_index']);
+                } catch (e) { }
+
+                window.location.href = "";
+            });
+
+        })();
+    </script>
+
+
+
+
+
+    <div class="footer">
+        <a href="">首页</a> |<a href=">Pad版</a> | <a href="">客户端</a> | <a href="#">个人中心</a><p></p>
+        <span>京公网安备：<a href="">11010502022785号</a>　京文网文【2017】2380-251号    <a href="http:">京ICP备11024344号-7</a> 京ICP证110954号  猎豹移动·版权所有</span>
+    </div>
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
